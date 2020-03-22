@@ -5,13 +5,14 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Kallawaya</title>
-    <link rel="icon" href="img/favicon.png">
+
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
     <!-- style CSS -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'kallawaya/style.css' %}">
+    <link rel="icon" href="{% static 'kallawaya/img/favicon.png' %}">
 </head>
 
 <body>
@@ -24,7 +25,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light"><br>
-                        <a class="navbar-brand" href="index.html"> <img src="img/logo-oficial2.png" alt="logo" style="margin-top: 75px;;"> </a><br>
+                        <a class="navbar-brand" href="index.html"> <img src="{% static 'kallawaya/img/logo-oficial2.png' %}" alt="logo" style="margin-top: 75px;;"> </a><br>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -46,9 +47,9 @@
                         <div class="breadcrumb_iner_item">
                             <br>
                             <br>
-                            <img src="img/bubble1.png" align="left">
-                            <img src="img/guy.png" align="right">
-                            <img src="img/logo-oficial2.png" align="center">
+                            <img src="{% static 'kallawaya/img/bubble1.png' %}" align="left">
+                            <img src="{% static 'kallawaya/img/guy.png' %}" align="right">
+                            <img src="{% static 'kallawaya/img/logo-oficial2.png' %}" align="center">
 
                             <div class="col-lg-8">
             <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm">
