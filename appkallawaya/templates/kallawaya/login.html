@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="zxx">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Kallawaya</title>
+    <link rel="icon" href="img/favicon.png">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+    <!-- style CSS -->
+    {% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'kallawaya/style.css' %}">
+</head>
+
+<body>
+    </br>
+    </br>
+    </br>
+    <!--::header part start::-->
+    <header class="main_menu single_page_menu">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <nav class="navbar navbar-expand-lg navbar-light"><br>
+                        <a class="navbar-brand" href="index.html"> <img src="img/logo-oficial2.png" alt="logo" style="margin-top: 75px;;"> </a><br>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse"
+                            data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                            aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="menu_icon"></span>
+                        </button>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--::Header part end::-->
+
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg" style="background: #65dfef">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <br>
+                            <br>
+                            <img src="img/bubble1.png" align="left">
+                            <img src="img/guy.png" align="right">
+                            <img src="img/logo-oficial2.png" align="center">
+
+                            <div class="col-lg-8">
+            <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="form-group" style="align-content: center;"></div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group" style="padding-left: 80px;">
+                        <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Enter your name'" placeholder='Ingresa tu usuario'>
+                        </div>
+                    </div>
+                    <div class="col-12">
+                        <div class="form-group" style="padding-left: 80px;">
+                        <input class="form-control" name="contrasena" id="contrasena" type="contrasena" onfocus="this.placeholder = ''"
+                            onblur="this.placeholder = 'Ingresa una contraseña'" placeholder='Ingresa tu contraseña'>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="" style="padding-left: 30px;">
+                            <a href="#" class="btn_2" style="background-color: #651dfd">Acceder</a>
+                        </div>
+                        <div class="" style="padding-left: 180px; margin-top: -50px;">
+                            <a href="#" class="btn_2" style="background-color: #651dfd">Registrarte</a>
+                        </div>
+                    </div>
+
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+</body>
+
+</html>
