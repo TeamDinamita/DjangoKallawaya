@@ -2,14 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa3637dc-10bb-42bc-bbc9-17823ab6ed6e" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/appkallawaya/forms.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appkallawaya/templates/base.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/home.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/edit_profile.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/profile.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appkallawaya/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appkallawaya/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appkallawaya/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/forms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appkallawaya/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/templates/base.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/home.html" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/home.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appkallawaya/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appkallawaya/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
@@ -56,10 +54,10 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1584932017555">
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1584981750438">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1584932017555" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1584981750438" />
     <state x="484" y="316" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1584939048694">
       <screen x="67" y="27" width="1299" height="741" />
     </state>

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+{% load static %}
+<!--::banner part start::-->
+    <section class="banner_part" style="background-image: url('{% static 'kallawaya/img/banner_bg2.png' %}')">
+        <div class="container">
+            <div class="row align-items-center justify-content-between" style="width: 1200px;">
+                <div class="col-lg-5">
+                    <div class="banner_img d-none d-lg-block" style=" margin-top: -220px;">
+                        <img src="{% static 'kallawaya/img/perfil.png' %}" alt="">
+                    </div>
+                    <div class="container">
+                        <h1>Profile:</h1>
+                        <p style="font-size:20px; margin-bottom:25px; color: white;">Username:  {{ user }}</p>
+                        <p style="font-size:20px; margin-bottom:25px; color: white">First Name:  {{ user.first_name }}</p>
+                        <p style="font-size:20px; margin-bottom:25px; color: white">Last Name:  {{ user.last_name }}</p>
+                        <p style="font-size:20px; color: white">Email:  {{ user.email }}</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="banner_text" style="padding-bottom: 300px; margin-top: -120px;">
+
+                        <div class="banner_text_iner">
+                            <div class="row">
+                                <div class="col-4">
+                                    <i class="fas fa-tools fa-8x"></i>
+                                </div>
+                                <div class="col-3" style="margin-top: 20px;">
+                                    <a href="/kallawaya/profile/edit" class="d-none d-sm-block btn_1 home_page_btn">Editar Perfil</a>
+                                </div>
+                            </div>
+                            </br>
+                            <div class="row">
+                                <div class="col-4">
+                                    <i class="fas fa-lock fa-8x"></i>
+                                </div>
+                                <div class="col-4" style="margin-top: 20px;">
+                                    <a href="#" class="d-none d-sm-block btn_1 home_page_btn">Cambiar contraseña</a>
+                                </div>
+                            </div>
+                            </br>
+                            <div class="row">
+                                <div class="col-4">
+                                    <i class="fas fa-history fa-8x"></i>
+                                </div>
+                                <div class="col-4" style="margin-top: 20px;">
+                                    <a href="#" class="d-none d-sm-block btn_1 home_page_btn">Ver historial</a>
+                                </div>
+                            </div>
+                            </br>
+                            <div class="row">
+                                <div class="col-4">
+                                    <i class="fas fa-sign-out-alt fa-8x"></i>
+                                </div>
+                                <div class="col-5" style="margin-top: 20px;">
+                                    <a href="#" class="d-none d-sm-block btn_1 home_page_btn">Cerrar sesión</a>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+
+{% endblock %}
