@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from appkallawaya.forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
@@ -18,7 +19,7 @@ def register(request):
         form = RegistrationForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('/kallawaya')
+            return redirect('/kallawaya/login')
         else:
             form = RegistrationForm()
             args = {'form': form}
@@ -29,8 +30,12 @@ def register(request):
         return render(request, 'kallawaya/register.html', args)
 
 
-def profile(request):
-    args = {'user': request.user}
+def profile(request, pk=None):
+    if pk:
+        user = User.objects.get(pk=pk)
+    else:
+        user = request.user
+    args = {'user': user}
     return render(request, 'kallawaya/profile.html', args)
 
 
@@ -44,3 +49,18 @@ def edit_profile(request):
         form = EditProfileForm(instance=request.user)
         args = {'form': form}
         return render(request, 'kallawaya/edit_profile.html', args)
+
+
+def change_password(request):
+    if request.method == 'POST':
+        form = PasswordChangeForm(data=request.POST, user=request.user)
+        if form.is_valid():
+            form.save()
+            update_session_auth_hash(request, form.user)
+            return redirect('/kallawaya/profile')
+        else:
+            return redirect('/kallawaya/change-password')
+    else:
+        form = PasswordChangeForm(user=request.user)
+        args = {'form': form}
+        return render(request, 'kallawaya/change_password.html', args)
