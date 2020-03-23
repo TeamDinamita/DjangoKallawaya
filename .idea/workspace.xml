@@ -2,8 +2,13 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="fa3637dc-10bb-42bc-bbc9-17823ab6ed6e" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/appkallawaya/static/kallawaya/buttons.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/djangokallawaya/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/templates/kallawaya/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/appkallawaya/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/appkallawaya/urls.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangokallawaya/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangokallawaya/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/djangokallawaya/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/djangokallawaya/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,9 +52,9 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1584894668431">
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog" timestamp="1584922192038">
       <screen x="67" y="27" width="1299" height="741" />
     </state>
-    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1584894668431" />
+    <state x="372" y="224" key="com.intellij.ide.util.TipDialog/67.27.1299.741@67.27.1299.741" timestamp="1584922192038" />
   </component>
 </project>

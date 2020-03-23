@@ -12,6 +12,7 @@
     <!-- style CSS -->
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'kallawaya/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'kallawaya/buttons.css' %}">
     <link rel="icon" href="{% static 'kallawaya/img/favicon.png' %}">
 </head>
 
@@ -52,33 +53,11 @@
                             <img src="{% static 'kallawaya/img/logo-oficial2.png' %}" align="center">
 
                             <div class="col-lg-8">
-            <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm">
-                <div class="row">
-                    <div class="col-12">
-                        <div class="form-group" style="align-content: center;"></div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group" style="padding-left: 80px;">
-                        <input class="form-control" name="name" id="name" type="text" onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Enter your name'" placeholder='Ingresa tu usuario'>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="form-group" style="padding-left: 80px;">
-                        <input class="form-control" name="contrasena" id="contrasena" type="contrasena" onfocus="this.placeholder = ''"
-                            onblur="this.placeholder = 'Ingresa una contraseña'" placeholder='Ingresa tu contraseña'>
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="" style="padding-left: 30px;">
-                            <a href="#" class="btn_2" style="background-color: #651dfd">Acceder</a>
-                        </div>
-                        <div class="" style="padding-left: 180px; margin-top: -50px;">
-                            <a href="#" class="btn_2" style="background-color: #651dfd">Registrarte</a>
-                        </div>
-                    </div>
-
-                </div>
+                            </div>
+            <form method="post" id="contactForm">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <button type="submit" class="btn_2" style="background-color: #651dfd">Login</button>
             </form>
         </div>
     </section>
