@@ -3,7 +3,7 @@ from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from appkallawaya.forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
-
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 
@@ -30,6 +30,7 @@ def register(request):
         return render(request, 'kallawaya/register.html', args)
 
 
+@login_required()
 def profile(request, pk=None):
     if pk:
         user = User.objects.get(pk=pk)
@@ -39,6 +40,7 @@ def profile(request, pk=None):
     return render(request, 'kallawaya/profile.html', args)
 
 
+@login_required()
 def edit_profile(request):
     if request.method == 'POST':
         form = EditProfileForm(request.POST, instance=request.user)
@@ -51,6 +53,7 @@ def edit_profile(request):
         return render(request, 'kallawaya/edit_profile.html', args)
 
 
+@login_required()
 def change_password(request):
     if request.method == 'POST':
         form = PasswordChangeForm(data=request.POST, user=request.user)
