@@ -6,3 +6,4 @@ from appkallawaya.models import *
 
 admin.site.register(Plant)
 admin.site.register(UserProfile)
+admin.site.register(Malestares)
