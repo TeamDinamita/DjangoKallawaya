@@ -83,7 +83,11 @@ def testHome(request):
 
 
 def testInit(request):
+<<<<<<< HEAD
     return render(request, 'kallawaya/testInit.html')
 
 def contact(request):
     return render(request, 'kallawaya/contact.html')
+=======
+    return render(request, 'kallawaya/testInit.html')
+>>>>>>> 2bd23047690e08f52494792f403a5fe426ad8883
