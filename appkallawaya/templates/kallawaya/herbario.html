@@ -1,0 +1,101 @@
+{% extends 'base.html' %}
+<h1>HERBARIO</h1>
+{% block head %}
+    <title>Herbario</title>
+{% endblock %}
+
+{% block body %}
+    <!--::banner part start::-->
+        {% load static %}
+     <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg"  style="background-color: #0cdcab">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <br>
+                            <br>
+                            <img src="{% static 'kallawaya/img/herbario2.png' %}">
+                            <h2>HERBARIO</h2>
+                            
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+    <!-- breadcrumb start-->
+    
+    <div class="container"><div class="row">
+  <div class="column">
+      <a href="ajenjo.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> AJENJO</h4>
+      <a href="cola_caballo.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> COLA DE CABALLO</h4>
+      <a href="eucalipto.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> EUCALIPTO</h4>
+      <a href="hiperico.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> HIPÉRICO</h4>
+  </div>
+      <div class="column">
+      <a href="jengibre.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> JENGIBRE</h4>
+      <a href="diente_leon.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> DIENTE DE LEÓN </h4> 
+      <a href="oregano.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> ORÉGANO</h4> 
+      <a href="ortiga.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> ORTIGA</h4> 
+   </div>
+</div>
+    
+    
+
+        
+    </div>
+</section>
+    <!--::footer_part start::-->
+    <footer class="footer_part">
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8 col-md-4 col-lg-4">
+                    <div class="single_footer_part">
+                        <a href="index.html" class="footer_logo_iner"> <img src="{% static 'kallawaya/img/logo1.png' %}" alt="#"> </a>
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-2">
+                    <div class="single_footer_part">
+                       
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-2">
+                    <div class="single_footer_part">
+                       
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-4 col-lg-2">
+                    <div class="single_footer_part">
+                        
+                    </div>
+                </div>
+                <div class="col-sm-4 col-md-3 col-lg-2">
+                    <div class="single_footer_part">
+                        
+                    </div>
+                </div>
+            </div>
+            <hr>
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="copyright_text">
+                        <P><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This page is made by Kallawaya.org
+<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></P>
+                    </div>
+                </div>
+                
+            </div>
+        </div>
+    </footer>
+    <!--::footer_part end::-->
+
+  <!--::footer_part end::-->
+
+
+    <!--::subscribe us part end::-->
+{% endblock %}

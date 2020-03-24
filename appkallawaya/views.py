@@ -83,8 +83,11 @@ def testHome(request):
 
 def contact(request):
     return render(request, 'kallawaya/contact.html')
-    
+
 def testInit(request):
     return render(request, 'kallawaya/testInit.html')
+
+def herbario(request):
+    return render(request, 'kallawaya/herbario.html')
 
 

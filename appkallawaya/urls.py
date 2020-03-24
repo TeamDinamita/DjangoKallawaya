@@ -14,5 +14,6 @@ urlpatterns = [
     path('plants/', views.list_Plant, name='plants'),
     path('testHome/', views.testHome, name='testHome'),
     path('contact/', views.contact, name='contact'),
-    path('testInit/', views.testInit, name='testInit')
+    path('testInit/', views.testInit, name='testInit'),
+    path('herbario/', views.herbario, name='herbario')
 ]
