@@ -76,3 +76,11 @@ def list_Plant(request):
         "object_list":queryset
     }
     return render(request, "kallawaya/plants.html", context)
+
+
+def testHome(request):
+    return render(request, 'kallawaya/testHome.html')
+
+
+def testInit(request):
+    return render(request, 'kallawaya/testInit.html')

@@ -28,3 +28,11 @@ def create_profile(sender, **kwargs):
 
 
 post_save.connect(create_profile, sender=User)
+
+
+class Malestares(models.Model):
+    name = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=1200, default='', help_text="Adiciona observaciones/informacion")
+
+    def __str__(self):
+        return "Malestar: {0} y Observacion: {1}".format(self.name, self.description)
