@@ -4,6 +4,7 @@ from appkallawaya.forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
+from .models import Plant
 # Create your views here.
 
 
@@ -67,3 +68,11 @@ def change_password(request):
         form = PasswordChangeForm(user=request.user)
         args = {'form': form}
         return render(request, 'kallawaya/change_password.html', args)
+
+
+def list_Plant(request):
+    queryset = Plant.objects.all()
+    context = {
+        "object_list":queryset
+    }
+    return render(request, "kallawaya/plants.html", context)
