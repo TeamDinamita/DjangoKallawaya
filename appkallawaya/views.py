@@ -81,13 +81,10 @@ def list_Plant(request):
 def testHome(request):
     return render(request, 'kallawaya/testHome.html')
 
-
-def testInit(request):
-<<<<<<< HEAD
-    return render(request, 'kallawaya/testInit.html')
-
 def contact(request):
     return render(request, 'kallawaya/contact.html')
-=======
+    
+def testInit(request):
     return render(request, 'kallawaya/testInit.html')
->>>>>>> 2bd23047690e08f52494792f403a5fe426ad8883
+
+
