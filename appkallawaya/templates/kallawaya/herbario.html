@@ -18,9 +18,7 @@
                             <br>
                             <img src="{% static 'kallawaya/img/herbario2.png' %}">
                             <h2>HERBARIO</h2>
-                            
                         </div>
-
                     </div>
                 </div>
             </div>
@@ -28,25 +26,18 @@
    
     <!-- breadcrumb start-->
     
-    <div class="container"><div class="row">
-  <div class="column">
-      <a href="ajenjo.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> AJENJO</h4>
-      <a href="cola_caballo.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> COLA DE CABALLO</h4>
-      <a href="eucalipto.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> EUCALIPTO</h4>
-      <a href="hiperico.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> HIPÉRICO</h4>
-  </div>
-      <div class="column">
-      <a href="jengibre.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> JENGIBRE</h4>
-      <a href="diente_leon.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> DIENTE DE LEÓN </h4> 
-      <a href="oregano.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> ORÉGANO</h4> 
-      <a href="ortiga.html"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"></a> ORTIGA</h4> 
-   </div>
-</div>
-    
-    
 
-        
-    </div>
+
+
+        <div class="container">
+            <div class="row">
+                {% for instance in plants  %}
+                <div class="col-sm">
+                    <a href="{% url 'appkallawaya:herbario_picked' pk=instance.id %}"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"> {{ instance.name }}</h4></a>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
 </section>
     <!--::footer_part start::-->
     <footer class="footer_part">

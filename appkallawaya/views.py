@@ -1,10 +1,21 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
 from appkallawaya.forms import RegistrationForm, EditProfileForm
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from .models import Plant
+from django.views.generic import TemplateView
+from urllib.parse import quote
+
+from django.http import (
+    HttpResponseBadRequest, HttpResponseForbidden, HttpResponseNotFound,
+    HttpResponseServerError,
+)
+from django.template import Context, Engine, TemplateDoesNotExist, loader
+from django.views.defaults import page_not_found
+ERROR_404_TEMPLATE_NAME = 'kallawaya/error404.html'
+ERROR_500_TEMPLATE_NAME = 'kallawaya/error500.html'
 # Create your views here.
 
 
@@ -31,43 +42,49 @@ def register(request):
         return render(request, 'kallawaya/register.html', args)
 
 
-@login_required()
 def profile(request, pk=None):
-    if pk:
-        user = User.objects.get(pk=pk)
-    else:
-        user = request.user
-    args = {'user': user}
-    return render(request, 'kallawaya/profile.html', args)
-
-
-@login_required()
-def edit_profile(request):
-    if request.method == 'POST':
-        form = EditProfileForm(request.POST, instance=request.user)
-        if form.is_valid():
-            form.save()
-            return redirect('/kallawaya/profile')
-    else:
-        form = EditProfileForm(instance=request.user)
-        args = {'form': form}
-        return render(request, 'kallawaya/edit_profile.html', args)
-
-
-@login_required()
-def change_password(request):
-    if request.method == 'POST':
-        form = PasswordChangeForm(data=request.POST, user=request.user)
-        if form.is_valid():
-            form.save()
-            update_session_auth_hash(request, form.user)
-            return redirect('/kallawaya/profile')
+    if request.user.is_authenticated:
+        if pk:
+            user = User.objects.get(pk=pk)
         else:
-            return redirect('/kallawaya/change-password')
+            user = request.user
+        args = {'user': user}
+        return render(request, 'kallawaya/profile.html', args)
     else:
-        form = PasswordChangeForm(user=request.user)
-        args = {'form': form}
-        return render(request, 'kallawaya/change_password.html', args)
+        return render(request, 'kallawaya/error404.html')
+
+
+def edit_profile(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = EditProfileForm(request.POST, instance=request.user)
+            if form.is_valid():
+                form.save()
+                return redirect('/kallawaya/profile')
+        else:
+            form = EditProfileForm(instance=request.user)
+            args = {'form': form}
+            return render(request, 'kallawaya/edit_profile.html', args)
+    else:
+        return render(request, 'kallawaya/error404.html')
+
+
+def change_password(request):
+    if request.user.is_authenticated:
+        if request.method == 'POST':
+            form = PasswordChangeForm(data=request.POST, user=request.user)
+            if form.is_valid():
+                form.save()
+                update_session_auth_hash(request, form.user)
+                return redirect('/kallawaya/profile')
+            else:
+                return redirect('/kallawaya/change-password')
+        else:
+            form = PasswordChangeForm(user=request.user)
+            args = {'form': form}
+            return render(request, 'kallawaya/change_password.html', args)
+    else:
+        return render(request, 'kallawaya/error404.html')
 
 
 def list_Plant(request):
@@ -81,13 +98,28 @@ def list_Plant(request):
 def testHome(request):
     return render(request, 'kallawaya/testHome.html')
 
+
 def contact(request):
     return render(request, 'kallawaya/contact.html')
+
 
 def testInit(request):
     return render(request, 'kallawaya/testInit.html')
 
-def herbario(request):
-    return render(request, 'kallawaya/herbario.html')
+
+def herbario(request, pk=None):
+    if pk==None:
+        plants = Plant.objects.all()
+        users = User.objects.all()
+        return render(request, 'kallawaya/herbario.html', {'plants': plants})
+    else:
+        if pk:
+            plant = Plant.objects.get(pk=pk)
+        else:
+            plant = request.plant
+        args = {'plant': plant}
+        return render(request, 'kallawaya/infoPlant.html', args)
+
+
 
 

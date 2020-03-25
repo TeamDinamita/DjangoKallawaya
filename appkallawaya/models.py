@@ -8,11 +8,11 @@ from django.db.models.signals import post_save
 
 class Plant(models.Model):
     name = models.CharField(max_length=100, default='')
-    description = models.CharField(max_length=1200, default='')
-    cura = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=1500, default='')
+    cura = models.CharField(max_length=1500, default='')
 
     def __str__(self):
-        return "Planta: {0} y CURA: {1}".format(self.name, self.cura)
+        return "Planta: {0}".format(self.name)
 
 
 class UserProfile(models.Model):
