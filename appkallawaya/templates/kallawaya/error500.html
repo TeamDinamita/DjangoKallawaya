@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+<h1>HERBARIO</h1>
+{% block head %}
+    <title>error404</title>
+{% endblock %}
+
+{% block body %}
+    <!-- breadcrumb start-->
+    <section class="breadcrumb breadcrumb_bg"  style="background-color: #ab1c53">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb_iner text-center">
+                        <div class="breadcrumb_iner_item">
+                            <br>
+                            <br>
+                            <img src="{% static 'kallawaya/img/error1.png' %}">
+                            <h2>OOPS! NO ENCONTRAMOS LA PÁGINA</h2><br>
+                            <a href="/kallawaya/login"><H2 style="color: #7ef2e5">VUELVE A INICIO (click aquí)</H2></a>
+
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- breadcrumb start-->
+{% endblock %}
