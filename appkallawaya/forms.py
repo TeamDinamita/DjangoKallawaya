@@ -1,11 +1,42 @@
 from django import forms
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
+from appkallawaya.models import Post
 
+FRUIT_CHOICES= [
+    ('orange', 'Oranges'),
+    ('cantaloupe', 'Cantaloupes'),
+    ('mango', 'Mangoes'),
+    ('honeydew', 'Honeydews'),
+    ]
+
+
+class UserForm(forms.Form):
+    favorite_fruit= forms.CharField(label='What is your favorite fruit?', widget=forms.RadioSelect(choices=FRUIT_CHOICES))
+    
+    class Meta:
+        model = User
+        fields = (
+            'orange',
+            'cantaloupe',
+            'mango',
+            'honeydew'
+        )
+
+
+
+    def save(self, commit=True):
+        user = super(UserForm, self).save(commit=False)
+        user.favorite_fruit = self.self.widget = forms.RadioSelect(choices=FRUIT_CHOICES)
+        if commit:
+            user.save()
+
+        return user
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
-
+    favorite_fruit= forms.CharField(label='What is your favorite fruit?', widget=forms.RadioSelect(choices=FRUIT_CHOICES))
+    
     class Meta:
         model = User
         fields = (
@@ -35,4 +66,14 @@ class EditProfileForm(UserChangeForm):
             'email',
             'first_name',
             'last_name'
+        )
+
+
+class HomeForm(forms.ModelForm):
+    post = forms.BooleanField()
+
+    class Meta:
+        model = Post
+        fields = (
+            ('post', )
         )

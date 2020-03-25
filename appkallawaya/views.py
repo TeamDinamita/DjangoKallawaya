@@ -1,10 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from appkallawaya.forms import RegistrationForm, EditProfileForm
+from appkallawaya.forms import RegistrationForm, EditProfileForm, HomeForm
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from .models import Plant
+
+from django.views.generic import TemplateView
 # Create your views here.
 
 
@@ -91,3 +93,22 @@ def herbario(request):
     return render(request, 'kallawaya/herbario.html')
 
 
+class HomeView(TemplateView):
+    template_name = 'kallawaya/testInit.html'
+
+    def get(self, request):
+        form = HomeForm()
+        return render(request, self.template_name, {'form': form})
+    
+    def post(self, request):
+        form = HomeForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            boolean = form.cleaned_data['post']
+            form = HomeForm()
+            return redirect('kallawaya:testInit')
+        
+        args = {'form': form, 'boolean': boolean}
+        return render(request, self.template_name, args)

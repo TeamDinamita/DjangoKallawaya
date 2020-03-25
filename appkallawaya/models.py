@@ -36,3 +36,7 @@ class Malestares(models.Model):
 
     def __str__(self):
         return "Malestar: {0} y Observacion: {1}".format(self.name, self.description)
+
+class Post(models.Model):
+    post = models.BooleanField(default=False)
+    user = models.ForeignKey(User, on_delete = models.CASCADE)
