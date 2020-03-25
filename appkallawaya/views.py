@@ -1,10 +1,11 @@
 from django.shortcuts import render, redirect, render_to_response
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from appkallawaya.forms import RegistrationForm, EditProfileForm
+from appkallawaya.forms import RegistrationForm, EditProfileForm, HomeForm
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
 from .models import Plant
+<<<<<<< HEAD
 from django.views.generic import TemplateView
 from urllib.parse import quote
 
@@ -16,6 +17,10 @@ from django.template import Context, Engine, TemplateDoesNotExist, loader
 from django.views.defaults import page_not_found
 ERROR_404_TEMPLATE_NAME = 'kallawaya/error404.html'
 ERROR_500_TEMPLATE_NAME = 'kallawaya/error500.html'
+=======
+
+from django.views.generic import TemplateView
+>>>>>>> d63227c4d4d0a042d27eda0bffbf55248a5a6022
 # Create your views here.
 
 
@@ -123,3 +128,22 @@ def herbario(request, pk=None):
 
 
 
+class HomeView(TemplateView):
+    template_name = 'kallawaya/testInit.html'
+
+    def get(self, request):
+        form = HomeForm()
+        return render(request, self.template_name, {'form': form})
+    
+    def post(self, request):
+        form = HomeForm(request.POST)
+        if form.is_valid():
+            post = form.save(commit=False)
+            post.user = request.user
+            post.save()
+            boolean = form.cleaned_data['post']
+            form = HomeForm()
+            return redirect('kallawaya:testInit')
+        
+        args = {'form': form, 'boolean': boolean}
+        return render(request, self.template_name, args)

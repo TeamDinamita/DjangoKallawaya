@@ -21,5 +21,8 @@ urlpatterns = [
     path('contact/', views.contact, name='contact'),
     path('testInit/', views.testInit, name='testInit'),
     path('herbario/', views.herbario, name='herbario'),
+<<<<<<< HEAD
     url(r'^herbario/(?P<pk>\d+)/', views.herbario, name='herbario_picked')
+=======
+>>>>>>> d63227c4d4d0a042d27eda0bffbf55248a5a6022
 ]
