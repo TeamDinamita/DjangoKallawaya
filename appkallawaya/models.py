@@ -5,9 +5,9 @@ from django.db.models.signals import post_save
 
 # Create your models here.
 
-class Malestares(models.Model):
-    name = models.CharField(max_length=100, default='')
-    description = models.CharField(max_length=1200, default='', help_text="Adiciona observaciones/informacion")
+class MalestaresTable(models.Model):
+    name = models.CharField(max_length=100, default='dolor de estomago')
+    description = models.CharField(max_length=1200, default='dolor', help_text="Adiciona observaciones/informacion")
 
     def __str__(self):
         return "Malestar: {0} y Observacion: {1}".format(self.name, self.description)
@@ -17,10 +17,19 @@ class Plant(models.Model):
     name = models.CharField(max_length=100, default='')
     description = models.CharField(max_length=1500, default='')
     cura = models.CharField(max_length=1500, default='')
-    Malestares = models.ForeignKey(Malestares, null=False, blank=False, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "Planta: {0}".format(self.name, self.Malestares.name)
+        return "Planta: {0}".format(self.name)
+
+
+class Plant2(models.Model):
+    name = models.CharField(max_length=100, default='')
+    description = models.CharField(max_length=1500, default='')
+    cura = models.CharField(max_length=1500, default='')
+    malestares2 = models.ForeignKey(MalestaresTable, null=False, blank=False, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "Planta: {0}".format(self.name, self.malestares2)
 
 
 class UserProfile(models.Model):
