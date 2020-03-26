@@ -12,18 +12,6 @@ FRUIT_CHOICES= [
 
 
 class UserForm(forms.Form):
-    favorite_fruit= forms.CharField(label='What is your favorite fruit?', widget=forms.RadioSelect(choices=FRUIT_CHOICES))
-    
-    class Meta:
-        model = User
-        fields = (
-            'orange',
-            'cantaloupe',
-            'mango',
-            'honeydew'
-        )
-
-
 
     def save(self, commit=True):
         user = super(UserForm, self).save(commit=False)
@@ -33,20 +21,9 @@ class UserForm(forms.Form):
 
         return user
 
+
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
-    favorite_fruit= forms.CharField(label='What is your favorite fruit?', widget=forms.RadioSelect(choices=FRUIT_CHOICES))
-    
-    class Meta:
-        model = User
-        fields = (
-            'username',
-            'first_name',
-            'last_name',
-            'email',
-            'password1',
-            'password2'
-        )
 
     def save(self, commit=True):
         user = super(RegistrationForm, self).save(commit=False)
@@ -67,16 +44,7 @@ class EditProfileForm(UserChangeForm):
             'first_name',
             'last_name'
         )
-<<<<<<< HEAD
-=======
 
 
-class HomeForm(forms.ModelForm):
-    post = forms.BooleanField()
-
-    class Meta:
-        model = Post
-        fields = (
-            ('post', )
-        )
->>>>>>> d63227c4d4d0a042d27eda0bffbf55248a5a6022
+class HomeFormInit(forms.Form):
+    example = forms.CharField(widget=forms.Textarea(), required=True)
