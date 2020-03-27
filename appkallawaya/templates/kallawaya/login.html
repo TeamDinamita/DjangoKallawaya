@@ -13,7 +13,7 @@
     {% load static %}
     <link rel="stylesheet" type="text/css" href="{% static 'kallawaya/style.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static 'kallawaya/buttons.css' %}">
-    <link rel="icon" href="{% static 'kallawaya/img/favicon.png' %}">
+    <link rel="icon" href="{% static 'kallawaya/img/icon.png' %}">
 </head>
 
 <body>
@@ -27,6 +27,12 @@
      border: 2px solid #ffffff;
      background: transparent;
 }
+
+label{
+        color: #ffffff;
+        font-size: 25px;
+        padding-right: 30px;
+    }
 </style>
     </br>
     </br>
@@ -63,14 +69,17 @@
                             <img src="{% static 'kallawaya/img/guy.png' %}" align="right">
                             <img src="{% static 'kallawaya/img/logo-oficial2.png' %}" align="center">
 
-                            <div class="col-lg-8">
+                            <div class="row">
+                                <div col>
+
+                                </div>
                             </div>
             <form method="post" id="contactForm">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn_2" style="background-color: #651dfd">Login</button>
+                <button type="submit" class="btn_2" style="background-color: #651dfd; margin-left:-180px;">Login</button>
             </form>
-               <a class="btn_2" style="background-color: #651dfd" href="/kallawaya/register">Register</a></li>
+               <a class="btn_2" style="background-color: #651dfd; margin-left:155px; margin-top:-110px;" href="/kallawaya/register">Register</a></li>
         </div>
     </section>
 

@@ -7,14 +7,19 @@
 {% load static %}
 <style>
     input{
-     border-radius: 5px;
+     border-radius: 12px;
      background-color: #65dfef;
      padding-top: 8px;
      padding-left: 5px;
-     margin-bottom: 60px;
-     border: 1px solid #3FFFFFF;
+     margin-bottom: 40px;
+     border: 2px solid #ffffff;
      background: transparent;
 }
+    label{
+        color: #ffffff;
+        font-size: 20px;
+        padding-right: 30px;
+    }
 </style>
 <body style="background-color: #0cdcab">
 <section class="banner_part" >
@@ -32,6 +37,9 @@
                             <form method="post">
                                 {% csrf_token %}
                                 {{ form.as_p }}
+                            </br>
+                                </br>
+                                </br>
                                 <button type="submit" class="btn_2" style="background-color: #651dfd; margin-top: -265px;">Submit</button>
                             </form>
                         </div>
