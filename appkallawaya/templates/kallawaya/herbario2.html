@@ -33,7 +33,7 @@
             <div class="row">
                 {% for instance in plants  %}
                 <div class="col-sm">
-                    <a href="{% url 'appkallawaya:herbario_picked2' pk=instance.id %}"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"> {{ instance.name }}</h4></a>
+                    <a href="{% url 'appkallawaya:herbario2_picked' pk=instance.id %}"><h4 style="color: white"> <img src="{% static 'kallawaya/img/plus1.png' %}"> {{ instance.name }}</h4></a>
                 </div>
                 {% endfor %}
             </div>

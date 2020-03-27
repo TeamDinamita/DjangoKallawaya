@@ -23,5 +23,5 @@ urlpatterns = [
     path('herbario/', views.herbario, name='herbario'),
     url(r'^herbario/(?P<pk>\d+)/', views.herbario, name='herbario_picked'),
     path('herbario2/', views.herbario2, name='herbario2'),
-    url(r'^herbario2/(?P<pk>\d+)/', views.herbario2, name='herbario_picked2'),
+    url(r'^herbario2/(?P<pk>\d+)/', views.herbario2, name='herbario2_picked')
 ]
