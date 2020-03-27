@@ -19,6 +19,7 @@
                             <img src="{% static 'kallawaya/img/new3.png' %}" width="400px">
                             <br>
                             <br>
+<<<<<<< HEAD
                             <h4 style="color: white">*Nota: Solo puedes elegir uno<h4>
                                 {% for instance in molestias %}
                             <a href="{% url 'appkallawaya:testInit_picked' pk=instance.id %}" class="btn_2" id=1 style="background-color: #cf0050"> {{ instance.name }} </a>
@@ -26,6 +27,19 @@
                                 <br>
                                 <br>
                                 <br>
+=======
+                            <h6 style="color: white">*Nota: Solo puedes elegir uno<h6>
+                                {% for instance in molestias %}
+                            <a href="{% url 'appkallawaya:testInit_picked' pk=instance.id %}" class="btn_2" id=1 style="background-color: #0cdcab"> {{ instance.name }}</a>
+                                {% endfor %}
+                              <a href="#" class="btn_2" id=2 style="background-color: #fea680">DOLOR EN EL ESTÓMAGO</a><br><br>
+
+                              <a href="#" class="btn_2" style="background-color: #ab035e"><input type="checkbox">DOLOR DE HUESOS</a>
+                               <a href="#" class="btn_2" style="background-color: #9fcc44"><input type="checkbox">DOLOR DE MUELAS</a><br><br>
+                               <a href="#" class="btn_2" style="background-color: #fa635c"><input type="checkbox">CANSANCIO</a>
+                               <a href="#" class="btn_2" style="background-color: #ffae19"><input type="checkbox">FIEBRE</a><br><br>
+                              &nbsp; <a href="test3.html" class="btn_2" style="background-color: #1d3dc6">SIGUIENTE</a>
+>>>>>>> f416971bee45e28f8fe6893e916d4dd19c20aa69
                         </div>
 
                     </div>
