@@ -18,7 +18,9 @@
                             <br>
                             <br>
                             <h6 style="color: white">*Nota: Solo puedes elegir uno<h6>
-                            <a href="#" class="btn_2" id=1 style="background-color: #0cdcab">DOLOR DE CABEZA</a>
+                                {% for instance in molestias %}
+                            <a href="{% url 'appkallawaya:testInit_picked' pk=instance.id %}" class="btn_2" id=1 style="background-color: #0cdcab"> {{ instance.name }}</a>
+                                {% endfor %}
                               <a href="#" class="btn_2" id=2 style="background-color: #fea680">DOLOR EN EL ESTÓMAGO</a><br><br>
 
                               <a href="#" class="btn_2" style="background-color: #ab035e"><input type="checkbox">DOLOR DE HUESOS</a>

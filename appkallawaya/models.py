@@ -13,21 +13,13 @@ class Plant(models.Model):
         return "Planta: {0}".format(self.name)
 
 
-class Dolencias(models.Model):
+class Molestia(models.Model):
     name = models.CharField(max_length=100, default='')
+    herb = models.ForeignKey(Plant, on_delete=models.CASCADE)
 
     def __str__(self):
-        return "Dolencia: {0}".format(self.name)
+        return "Molestia: {0} y la planta es: {1}".format(self.name, self.herb.name)
 
-
-class Herb(models.Model):
-    name = models.CharField(max_length=100, default='')
-    description = models.CharField(max_length=1500, default='')
-    cura = models.CharField(max_length=1500, default='')
-    dolencia = models.ForeignKey(Dolencias, on_delete=models.CASCADE)
-
-    def __str__(self):
-        return "Planta: {0}".format(self.name)
 
 
 class UserProfile(models.Model):

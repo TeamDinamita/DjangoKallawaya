@@ -20,6 +20,7 @@ urlpatterns = [
     path('testHome/', views.testHome, name='testHome'),
     path('contact/', views.contact, name='contact'),
     path('testInit/', views.testInit, name='testInit'),
+    url(r'^testInit/(?P<pk>\d+)/', views.testInit, name='testInit_picked'),
     path('herbario/', views.herbario, name='herbario'),
     url(r'^herbario/(?P<pk>\d+)/', views.herbario, name='herbario_picked'),
     path('herbario2/', views.herbario2, name='herbario2'),

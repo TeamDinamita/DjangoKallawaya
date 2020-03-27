@@ -4,7 +4,7 @@ from appkallawaya.forms import RegistrationForm, EditProfileForm, HomeFormInit
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from .models import Plant, Herb
+from .models import Plant, Molestia
 from django.views.generic import TemplateView
 from appkallawaya.models import Post
 
@@ -104,8 +104,18 @@ def contact(request):
     return render(request, 'kallawaya/contact.html')
 
 
-def testInit(request):
-    return render(request, 'kallawaya/testInit.html')
+def testInit(request, pk=None):
+
+    if pk == None:
+        molestias = Molestia.objects.all()
+        return render(request, 'kallawaya/testInit.html', {'molestias': molestias})
+    else:
+        if pk:
+            molestia = Molestia.objects.get(pk=pk)
+        else:
+            molestia = request.molestia
+        args = {'molestia': molestia}
+        return render(request, 'kallawaya/testFinal.html', args)
 
 
 def herbario(request, pk=None):
@@ -132,11 +142,11 @@ class HomeView(TemplateView):
 
 def herbario2(request, pk=None):
     if pk == None:
-        plants = Herb.objects.all()
+        plants = Plant.objects.all()
         return render(request, 'kallawaya/herbario2.html', {'plants': plants})
     else:
         if pk:
-            plant = Herb.objects.get(pk=pk)
+            plant = Plant.objects.get(pk=pk)
         else:
             plant = request.plant
         args = {'plant': plant}

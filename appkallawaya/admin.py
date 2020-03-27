@@ -7,5 +7,4 @@ admin.site.register(Plant)
 admin.site.register(UserProfile)
 admin.site.register(Post)
 
-admin.site.register(Dolencias)
-admin.site.register(Herb)
+admin.site.register(Molestia)
