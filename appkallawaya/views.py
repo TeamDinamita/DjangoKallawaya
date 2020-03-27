@@ -1,26 +1,22 @@
-from django.shortcuts import render, redirect, render_to_response
+from django.shortcuts import render, redirect
 from django.contrib.auth.forms import UserChangeForm, PasswordChangeForm
-from appkallawaya.forms import RegistrationForm, EditProfileForm, HomeForm
+from appkallawaya.forms import RegistrationForm, EditProfileForm, HomeFormInit
 from django.contrib.auth.models import User
 from django.contrib.auth import update_session_auth_hash
 from django.contrib.auth.decorators import login_required
-from .models import Plant
-<<<<<<< HEAD
+from .models import Plant, Molestia
 from django.views.generic import TemplateView
+from appkallawaya.models import Post
+
 from urllib.parse import quote
 
-from django.http import (
-    HttpResponseBadRequest, HttpResponseForbidden, HttpResponseNotFound,
-    HttpResponseServerError,
-)
-from django.template import Context, Engine, TemplateDoesNotExist, loader
+from django.template import Context, Engine, loader
 from django.views.defaults import page_not_found
+
 ERROR_404_TEMPLATE_NAME = 'kallawaya/error404.html'
 ERROR_500_TEMPLATE_NAME = 'kallawaya/error500.html'
-=======
 
-from django.views.generic import TemplateView
->>>>>>> d63227c4d4d0a042d27eda0bffbf55248a5a6022
+
 # Create your views here.
 
 
@@ -95,7 +91,7 @@ def change_password(request):
 def list_Plant(request):
     queryset = Plant.objects.all()
     context = {
-        "object_list":queryset
+        "object_list": queryset
     }
     return render(request, "kallawaya/plants.html", context)
 
@@ -108,12 +104,22 @@ def contact(request):
     return render(request, 'kallawaya/contact.html')
 
 
-def testInit(request):
-    return render(request, 'kallawaya/testInit.html')
+def testInit(request, pk=None):
+
+    if pk == None:
+        molestias = Molestia.objects.all()
+        return render(request, 'kallawaya/testInit.html', {'molestias': molestias})
+    else:
+        if pk:
+            molestia = Molestia.objects.get(pk=pk)
+        else:
+            molestia = request.molestia
+        args = {'molestia': molestia}
+        return render(request, 'kallawaya/testFinal.html', args)
 
 
 def herbario(request, pk=None):
-    if pk==None:
+    if pk == None:
         plants = Plant.objects.all()
         users = User.objects.all()
         return render(request, 'kallawaya/herbario.html', {'plants': plants})
@@ -126,24 +132,24 @@ def herbario(request, pk=None):
         return render(request, 'kallawaya/infoPlant.html', args)
 
 
-
-
 class HomeView(TemplateView):
     template_name = 'kallawaya/testInit.html'
 
     def get(self, request):
-        form = HomeForm()
+        form = HomeFormInit()
         return render(request, self.template_name, {'form': form})
-    
-    def post(self, request):
-        form = HomeForm(request.POST)
-        if form.is_valid():
-            post = form.save(commit=False)
-            post.user = request.user
-            post.save()
-            boolean = form.cleaned_data['post']
-            form = HomeForm()
-            return redirect('kallawaya:testInit')
-        
-        args = {'form': form, 'boolean': boolean}
-        return render(request, self.template_name, args)
+
+
+def herbario2(request, pk=None):
+    if pk == None:
+        plants = Plant.objects.all()
+        return render(request, 'kallawaya/herbario2.html', {'plants': plants})
+    else:
+        if pk:
+            plant = Plant.objects.get(pk=pk)
+        else:
+            plant = request.plant
+        args = {'plant': plant}
+        return render(request, 'kallawaya/infoPlant2.html', args)
+
+

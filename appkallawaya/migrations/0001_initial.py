@@ -15,7 +15,7 @@ class Migration(migrations.Migration):
             name='Plant',
             fields=[
                 ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('name', models.CharField(default='00', max_length=100)),
+                ('name', models.CharField(default='', max_length=100)),
                 ('description', models.CharField(default='', max_length=500)),
             ],
         ),

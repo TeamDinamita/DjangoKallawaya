@@ -4,8 +4,6 @@ from django.db.models.signals import post_save
 
 
 # Create your models here.
-
-
 class Plant(models.Model):
     name = models.CharField(max_length=100, default='')
     description = models.CharField(max_length=1500, default='')
@@ -13,6 +11,15 @@ class Plant(models.Model):
 
     def __str__(self):
         return "Planta: {0}".format(self.name)
+
+
+class Molestia(models.Model):
+    name = models.CharField(max_length=100, default='')
+    herb = models.ForeignKey(Plant, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return "Molestia: {0} y la planta es: {1}".format(self.name, self.herb.name)
+
 
 
 class UserProfile(models.Model):
@@ -30,12 +37,6 @@ def create_profile(sender, **kwargs):
 post_save.connect(create_profile, sender=User)
 
 
-class Malestares(models.Model):
-    name = models.CharField(max_length=100, default='')
-    description = models.CharField(max_length=1200, default='', help_text="Adiciona observaciones/informacion")
-
-    def __str__(self):
-        return "Malestar: {0} y Observacion: {1}".format(self.name, self.description)
 
 class Post(models.Model):
     post = models.BooleanField(default=False)
