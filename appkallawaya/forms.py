@@ -3,28 +3,21 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, UserChangeForm
 from appkallawaya.models import Post
 
-FRUIT_CHOICES= [
-    ('orange', 'Oranges'),
-    ('cantaloupe', 'Cantaloupes'),
-    ('mango', 'Mangoes'),
-    ('honeydew', 'Honeydews'),
-    ]
-
-
-class UserForm(forms.Form):
-
-    def save(self, commit=True):
-        user = super(UserForm, self).save(commit=False)
-        user.favorite_fruit = self.self.widget = forms.RadioSelect(choices=FRUIT_CHOICES)
-        if commit:
-            user.save()
-
-        return user
-
 
 class RegistrationForm(UserCreationForm):
     email = forms.EmailField(required=True)
 
+    class Meta:
+        model = User
+        fields = (
+            'username',
+            'first_name',
+            'last_name',
+            'email',
+            'password1',
+            'password2'
+        )
+        
     def save(self, commit=True):
         user = super(RegistrationForm, self).save(commit=False)
         user.first_name = self.cleaned_data['first_name']
@@ -32,7 +25,6 @@ class RegistrationForm(UserCreationForm):
         user.email_name = self.cleaned_data['email']
         if commit:
             user.save()
-
         return user
 
 

@@ -21,10 +21,7 @@ ERROR_500_TEMPLATE_NAME = 'kallawaya/error500.html'
 
 
 def home(request):
-    numbers = [1, 2, 3, 4, 5]
-    name = 'MAriana Carlo'
-    args = {'myName': name, 'numbers': numbers}
-    return render(request, 'kallawaya/home.html', args)
+    return render(request, 'kallawaya/home.html')
 
 
 def register(request):

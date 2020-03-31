@@ -69,17 +69,19 @@ label{
                             <img src="{% static 'kallawaya/img/guy.png' %}" align="right">
                             <img src="{% static 'kallawaya/img/logo-oficial2.png' %}" align="center">
 
-                            <div class="row">
-                                <div col>
-
-                                </div>
-                            </div>
             <form method="post" id="contactForm">
                 {% csrf_token %}
                 {{ form.as_p }}
-                <button type="submit" class="btn_2" style="background-color: #651dfd; margin-left:-180px;">Login</button>
+                <div class="row">
+                    <div class="col-sm">
+                        <button type="submit" class="btn_2" style="background-color: #651dfd; ">Login</button>
+                    </div>
             </form>
-               <a class="btn_2" style="background-color: #651dfd; margin-left:155px; margin-top:-110px;" href="/kallawaya/register">Register</a></li>
+                    <div class="col-sm">
+                        <a class="btn_2" style="background-color: #651dfd; " href="/kallawaya/register">Register</a></li>
+                    </div>
+                </div>
+
         </div>
     </section>
 

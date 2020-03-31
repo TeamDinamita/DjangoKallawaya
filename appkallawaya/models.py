@@ -21,7 +21,6 @@ class Molestia(models.Model):
         return "Molestia: {0} y la planta es: {1}".format(self.name, self.herb.name)
 
 
-
 class UserProfile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     description = models.CharField(max_length=100, default='')
@@ -37,7 +36,6 @@ def create_profile(sender, **kwargs):
 post_save.connect(create_profile, sender=User)
 
 
-
 class Post(models.Model):
     post = models.BooleanField(default=False)
-    user = models.ForeignKey(User, on_delete = models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
